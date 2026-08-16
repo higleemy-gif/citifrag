@@ -119,6 +119,9 @@
             '<p>Imagery: incense sticks &mdash; <a href="https://www.flickr.com/photos/meanestindian/411558217/" target="_blank" rel="noopener">Meanest Indian</a>, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></p>' +
             "<p>ISO 9001:2015 Certified &nbsp;·&nbsp; Established 2021</p>" +
           "</div>" +
+          '<div class="footer-credit">' +
+            'Developed by <a href="https://gleemy.dev" target="_blank" rel="noopener">gleemy.dev</a>' +
+          "</div>" +
         "</div>" +
       "</footer>"
     );

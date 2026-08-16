@@ -779,6 +779,16 @@ body.nav-open { overflow: hidden; }
 }
 .footer-bottom a:hover { color: var(--gold-soft); }
 
+.footer-credit {
+  padding-block: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: right;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+}
+.footer-credit a { color: var(--gold-soft); }
+.footer-credit a:hover { color: #fff; }
+
 /* ---------- Floating WhatsApp ---------- */
 .wa-float {
   position: fixed;
