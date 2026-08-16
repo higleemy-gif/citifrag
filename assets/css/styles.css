@@ -867,7 +867,7 @@ body.nav-open { overflow: hidden; }
   .split .media { order: -1; }
   .grid-2, .grid-3, .philosophy-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
-  .hero { min-height: auto; padding-bottom: 0; }
+  .hero { min-height: auto; padding-bottom: 1.25rem; }
   .hero__grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .hero__inner { padding-block: 1.5rem 0; max-width: none; }
   .hero__visual { max-width: 380px; margin: 0 auto; width: 100%; }
@@ -878,7 +878,9 @@ body.nav-open { overflow: hidden; }
 @media (max-width: 560px) {
   body { font-size: 16px; }
   .grid-4 { grid-template-columns: 1fr; }
-  .stat-row { grid-template-columns: repeat(2,1fr); }
+  .stat-row { grid-template-columns: repeat(2,1fr); gap: 1.75rem 1rem; }
+  .stat__num { font-size: clamp(1.75rem, 9vw, 2.4rem); }
+  .stat__num--name { white-space: normal; }
   .footer-top { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .process-step { grid-template-columns: 1fr; gap: 1rem; }
