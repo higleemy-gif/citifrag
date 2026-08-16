@@ -24,7 +24,7 @@
     { label: "Capabilities", href: "capabilities.html", key: "capabilities" },
     { label: "Growth Journey", href: "growth-journey.html", key: "growth" },
     { label: "Cali Collaboration", href: "cali-collaboration.html", key: "cali" },
-    { label: "Contact", href: "contact.html", key: "contact" }
+    { label: "Careers", href: "careers.html", key: "careers" }
   ];
 
   function currentKey() {
