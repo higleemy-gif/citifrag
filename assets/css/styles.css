@@ -743,6 +743,17 @@ body.nav-open { overflow: hidden; }
   font-size: 0.92rem;
 }
 .form-success.show { display: block; }
+.form-error {
+  display: none;
+  background: #fdecec;
+  border: 1px solid #f0b4b4;
+  color: #8a1f1f;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+}
+.form-error.show { display: block; }
+.form-error a { color: #8a1f1f; font-weight: 600; text-decoration: underline; }
 
 /* Map frame placeholder */
 .map-embed {

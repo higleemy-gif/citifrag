@@ -69,23 +69,71 @@
     });
   }
 
-  // ---- Contact form (front-end confirmation only; no backend invented) ----
+  // ---- Contact form (submits to Web3Forms, which emails each enquiry) ----
   function initContactForm() {
     var form = document.getElementById("enquiryForm");
     if (!form) return;
     var success = document.getElementById("formSuccess");
+    var error = document.getElementById("formError");
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var submitLabel = submitBtn ? submitBtn.textContent : "";
+
+    function hideMessages() {
+      if (success) success.classList.remove("show");
+      if (error) error.classList.remove("show");
+    }
+
+    function showError() {
+      if (error) {
+        error.classList.add("show");
+        error.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      hideMessages();
+
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
-      if (success) {
-        success.classList.add("show");
-        success.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
       }
-      form.reset();
+
+      fetch(form.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form)
+      })
+        .then(function (response) {
+          return response.json().then(function (data) {
+            return { ok: response.ok, data: data };
+          });
+        })
+        .then(function (result) {
+          if (result.ok && result.data && result.data.success) {
+            if (success) {
+              success.classList.add("show");
+              success.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+            form.reset();
+          } else {
+            showError();
+          }
+        })
+        .catch(function () {
+          showError();
+        })
+        .then(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitLabel;
+          }
+        });
     });
   }
 
