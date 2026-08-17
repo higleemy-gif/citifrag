@@ -69,71 +69,35 @@
     });
   }
 
-  // ---- Contact form (submits to Web3Forms, which emails each enquiry) ----
+  // ---- Contact form ----
+  // Submits natively (full-page POST) to FormSubmit, which emails each enquiry
+  // to the admin and then redirects the visitor to thank-you.html. Using a real
+  // form POST (not fetch/AJAX) means FormSubmit's one-time activation page is
+  // shown in the browser on the first submit, so setup can be completed easily.
   function initContactForm() {
     var form = document.getElementById("enquiryForm");
     if (!form) return;
-    var success = document.getElementById("formSuccess");
-    var error = document.getElementById("formError");
     var submitBtn = form.querySelector('button[type="submit"]');
-    var submitLabel = submitBtn ? submitBtn.textContent : "";
 
-    function hideMessages() {
-      if (success) success.classList.remove("show");
-      if (error) error.classList.remove("show");
-    }
-
-    function showError() {
-      if (error) {
-        error.classList.add("show");
-        error.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
+    // Redirect back to a thank-you page on whatever origin the site runs on
+    // (localhost during testing, the real domain once deployed).
+    var nextField = form.querySelector('input[name="_next"]');
+    if (nextField && window.location.origin && window.location.origin.indexOf("http") === 0) {
+      nextField.value = window.location.origin + "/thank-you.html";
     }
 
     form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      hideMessages();
-
+      // Native HTML5 validation (required fields, email format)
       if (!form.checkValidity()) {
+        e.preventDefault();
         form.reportValidity();
         return;
       }
-
+      // Let the browser perform the real submission; just show progress.
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = "Sending...";
       }
-
-      fetch(form.action, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(form)
-      })
-        .then(function (response) {
-          return response.json().then(function (data) {
-            return { ok: response.ok, data: data };
-          });
-        })
-        .then(function (result) {
-          if (result.ok && result.data && result.data.success) {
-            if (success) {
-              success.classList.add("show");
-              success.scrollIntoView({ behavior: "smooth", block: "center" });
-            }
-            form.reset();
-          } else {
-            showError();
-          }
-        })
-        .catch(function () {
-          showError();
-        })
-        .then(function () {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = submitLabel;
-          }
-        });
     });
   }
 

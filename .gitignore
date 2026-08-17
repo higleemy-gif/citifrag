@@ -15,3 +15,11 @@ yarn-error.log*
 
 # Logs
 *.log
+
+# Local preview server & scratch files (not part of the site)
+_server.js
+_*.ps1
+_*.txt
+_*.zip
+_docx_media/
+_tmp_docx*/
