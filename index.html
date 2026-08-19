@@ -27,12 +27,33 @@
   <main>
     <!-- ============ 1. HERO ============ -->
     <section class="hero">
+      <div class="hero__flow" aria-hidden="true">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="silk1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f6e7bd" stop-opacity="0"/>
+              <stop offset="35%" stop-color="#e6c876" stop-opacity="0.55"/>
+              <stop offset="60%" stop-color="#c9a24e" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#f3e4b6" stop-opacity="0.15"/>
+            </linearGradient>
+            <linearGradient id="silk2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#fff4d6" stop-opacity="0"/>
+              <stop offset="45%" stop-color="#e9d08a" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#b8975a" stop-opacity="0.2"/>
+            </linearGradient>
+          </defs>
+          <path class="hero__ribbon hero__ribbon--1" fill="url(#silk1)"
+            d="M-100,640 C260,520 420,760 760,600 C1060,455 1180,690 1560,470 L1560,900 L-100,900 Z"/>
+          <path class="hero__ribbon hero__ribbon--2" fill="url(#silk2)"
+            d="M-100,720 C300,640 520,820 820,700 C1120,580 1300,760 1560,600 L1560,900 L-100,900 Z"/>
+        </svg>
+      </div>
       <div class="container hero__grid">
         <div class="hero__inner">
           <span class="eyebrow reveal">Citifrag India Private Limited</span>
           <h1 class="display reveal reveal-d1">Fragrance that carries<br />trust, calm &amp; care</h1>
           <p class="hero__statement reveal reveal-d1">Trust &amp; Relax</p>
-          <p class="hero__lead lead reveal reveal-d2">A growing Indian house of fragrance, wellness, beauty, cosmetics and herbal products &mdash; blending time-honoured traditions with modern manufacturing and ISO-certified quality.</p>
+          <p class="hero__lead lead reveal reveal-d2">A growing Indian house of fragrance, wellness, beauty, cosmetics and herbal products &mdash; blending time-honoured traditions with modern manufacturing and ISO-certified quality you can trust.</p>
           <div class="hero__cta reveal reveal-d3">
             <a class="btn btn--primary" href="brands.html">Explore Our Brands
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -41,7 +62,13 @@
           </div>
         </div>
         <div class="hero__visual hero__visual--award reveal reveal-d2">
-          <img class="hero__trophy" src="assets/img/award-trophy.png" alt="India 500 Startup Awards 2022 Winner trophy — awarded to Citifrag India Private Limited" width="265" height="777" fetchpriority="high" />
+          <div class="hero__stage">
+            <img class="hero__trophy" src="assets/img/india-500-startup-trophy.png" alt="India 500 Startup Awards 2022 Winner trophy — awarded to Citifrag India Private Limited" width="1024" height="1536" fetchpriority="high" />
+            <span class="hero__glint hero__glint--a" aria-hidden="true"></span>
+            <span class="hero__glint hero__glint--b" aria-hidden="true"></span>
+            <span class="hero__glint hero__glint--c" aria-hidden="true"></span>
+            <span class="hero__glint hero__glint--d" aria-hidden="true"></span>
+          </div>
           <p class="hero__motto">&ldquo;A touch of fragrance adds warmth and a feeling of home.&rdquo;</p>
         </div>
       </div>
@@ -106,7 +133,7 @@
             </a>
           </div>
           <div class="media media--photo reveal reveal-d1">
-            <img src="assets/img/citifrag-office.jpg" alt="Inside the Citifrag India office — a modern, calm workspace with the CITIFRAG Trust and Relax brand wall" loading="lazy" />
+            <img src="images/Pic.png" alt="Inside the Citifrag India office — a modern, calm workspace with the CITIFRAG Trust and Relax brand wall" loading="lazy" />
           </div>
         </div>
       </div>
